@@ -14,7 +14,7 @@ const password2El = document.getElementById('password2');
 
 /*-------Variables---------*/
 
-let isRequired = false;
+
 
 
 /*-----Functions-------*/
@@ -38,28 +38,24 @@ function showSuccess(input){
 
 
 function checkRequired(inputArr){
-
-    
-
+    let isRequired = false;
     inputArr.forEach((input) => {
 
         if(input.value === ''){
 
+            showError(input, `${getIdName(input)} is required`);
             isRequired = true;
-            showError(input, `${getIdName(input)} is required`)
-            
 
-            return isRequired;
-            console.log(isRequired);
-        } 
+          
+        }  else {
+            showSuccess(input);
+        }
         
-    });return isRequired
+    });
     
 }
 
-function checkIsRequired(){
 
-}
 
 function getIdName(input){
     const word = input.id.charAt(0).toUpperCase() + input.id.slice(1)
@@ -107,19 +103,14 @@ function checkPasswordMatch(input1, input2){
 formEl.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    if(isRequired){
-        
-        checkRequired([usernameEl, emailEl, passwordEl, password2El]) 
-    } else{
+
+    if(!checkRequired([usernameEl, emailEl, passwordEl, password2El]) ){
+
         checkEmail(emailEl);
         checkLength(usernameEl, 3, 10);
         checkLength(passwordEl, 8, 50);
         checkPasswordMatch(passwordEl, password2El);
     }
-   
-    console.log(isRequired)
-
-   
 });
 
 
