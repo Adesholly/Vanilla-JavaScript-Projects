@@ -18,27 +18,38 @@ body {
 }
 
 .container {
-   background-color: #fff;
-   padding: 30px;
-  
-   
+   background-color: #fff;  
 }
 
-h1 {
+h2 {
     color: rgb(79, 198, 230);
 }
-.form-control {
+
+.form {
     display: flex;
     flex-direction: column;
-    color: rgb(159, 151, 151);;
+    color: rgb(159, 151, 151);
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
     
 }
 
+.form-control {
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.form-control label {
+    margin-top: 3px;
+}
 
 .form-control input {
     outline: 0;
     border: 1px solid rgb(230, 224, 224);
     margin: 2px 0;
+    font-size: 15px;
    
 }
 
@@ -50,10 +61,12 @@ h1 {
 
 
 .form-control small {
-    margin: 0 0 10px;
+    margin: 0 0 5px;
     color: var(--error-color);
+    display: none;
 }
-.form-control button {
+
+button {
     margin-top: 15px;
     background-color: rgb(79, 198, 230);
     outline: 0;
@@ -62,6 +75,7 @@ h1 {
     padding: 5px 0;
     border-radius: 2px;
     cursor: pointer;
+    width: 100%;
 }
 
 .form-control.success input {
@@ -73,5 +87,5 @@ h1 {
 }
 
 .form-control.error small {
-
+  display: block;
 }
