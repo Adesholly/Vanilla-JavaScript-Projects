@@ -1,24 +1,33 @@
-* {
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
 
 :root {
     --error-color:   rgb(250, 97, 97);
     --success-color:  rgb(115, 230, 115) ;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+
+
 body {
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Open Sans', sans-serif;
     min-height: 100vh;
     background-color: #eee;
 
 }
 
 .container {
-   background-color: #fff;  
+   background-color: #fff;
+   margin: 0;  
+   border-radius: 10px;
+   width: 320px;
 }
 
 h2 {
@@ -29,28 +38,38 @@ h2 {
     display: flex;
     flex-direction: column;
     color: rgb(159, 151, 151);
-    padding: 30px;
+    padding: 20px 35px;
     justify-content: center;
     align-items: center;
+  
     
 }
 
 .form-control {
     display: flex;
     flex-direction: column;
+    width: 100%;
   
 }
 
 .form-control label {
-    margin-top: 3px;
+  
 }
 
 .form-control input {
     outline: 0;
     border: 1px solid rgb(230, 224, 224);
     margin: 2px 0;
-    font-size: 15px;
+    border-radius: 2px;
+    font-size: 14px;
+    padding: 3px;
    
+}
+
+.form-control input::placeholder {
+    color: rgb(189, 184, 184);
+    font-size: 12px;
+    padding: 5px;
 }
 
 .form-control input:focus {
@@ -59,11 +78,10 @@ h2 {
     
 }
 
-
 .form-control small {
     margin: 0 0 5px;
     color: var(--error-color);
-    display: none;
+    visibility: hidden;
 }
 
 button {
@@ -76,6 +94,8 @@ button {
     border-radius: 2px;
     cursor: pointer;
     width: 100%;
+    font-size: 14px;
+    border-radius: 3px;
 }
 
 .form-control.success input {
@@ -87,5 +107,5 @@ button {
 }
 
 .form-control.error small {
-  display: block;
+  visibility: visible;
 }

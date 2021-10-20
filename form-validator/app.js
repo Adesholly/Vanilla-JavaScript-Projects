@@ -44,17 +44,22 @@ function checkRequired(inputArr){
     inputArr.forEach((input) => {
 
         if(input.value === ''){
-           
-            showError(input, `${getIdName(input)} is required`)
+
             isRequired = true;
+            showError(input, `${getIdName(input)} is required`)
+            
 
             return isRequired;
+            console.log(isRequired);
         } 
         
-    });
+    });return isRequired
     
 }
 
+function checkIsRequired(){
+
+}
 
 function getIdName(input){
     const word = input.id.charAt(0).toUpperCase() + input.id.slice(1)
