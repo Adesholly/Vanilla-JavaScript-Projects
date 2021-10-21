@@ -1,6 +1,4 @@
-
-
-
+/*----------------Getting HTML Element------------------*/
 
 const movieEl = document.getElementById('movies');
 const containerEl = document.querySelector('.container');
@@ -9,15 +7,24 @@ const totalEl = document.getElementById('total');
 
 
 
+//Storaging the selected movie and price into the local storage
+
+
+
+function setMoviesToLS(movieIndex, moviePrice){
+    localStorage.setItem('selectedMovieIndex', movieIndex);
+    localStorage.setItem('selectedMoviePrice', moviePrice);
+}
 
 //Increasing the selected and price
 function updateCount(){
-    const selected = document.querySelectorAll('.row .seat.selected')
+    const selectedSeat = document.querySelectorAll('.row .seat.selected')
     
+    
+
     
     const ticketPrice = +movieEl.value;
-    const count = selected.length;
-
+    const count = selectedSeat.length;
 
     const totalPrice = count * ticketPrice;
     totalEl.innerText = totalPrice
@@ -26,7 +33,13 @@ function updateCount(){
 
 
 
-//Adding Event Listener
+
+/*------------------Adding Event Listeners---------------*/
+
+movieEl.addEventListener('change', e => {
+    updateCount();
+})
+
 
 containerEl.addEventListener('click', e => {
     
@@ -34,11 +47,8 @@ containerEl.addEventListener('click', e => {
        !e.target.classList.contains('occupied') ){
 
         e.target.classList.toggle('selected');
-        
         updateCount();
     }
 })
-
-
 
 
