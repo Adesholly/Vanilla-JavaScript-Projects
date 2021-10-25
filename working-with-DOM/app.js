@@ -60,15 +60,6 @@ function addUser(obj){
     updateDOM()
 }
 
-
-
-//Format the money to look like currency
-function formatMoney(money){
-
-   return '$' + (money).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');  
-
-}
-
 //Addung Double Money functionality
 function doubleMoney(){
     
@@ -90,8 +81,38 @@ function showOnlyMillionaires(){
 }
 
 
-//Event Listerners
+//Sorting the user by the richest person
+function sortByRichest(){
+    data = data.sort((a, b) => {
+        return b.money - a.money;
+    })
+    updateDOM();
+}
 
+//Adding all the money together
+function calculateTotalWealth(){
+    const totalWealth = data.reduce((acc, item) => 
+        (acc += item.money), 0);
+    updateDOM();
+    const totalWealthEl = document.createElement('div');
+    totalWealthEl.innerHTML = `
+        <h3><strong>Total wealth: </strong>  ${formatMoney(totalWealth)}</h3>
+    `;
+    mainEl.appendChild(totalWealthEl);
+   
+
+}
+
+//Format the money to look like currency
+function formatMoney(money){
+    return '$' + (money).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');  
+ 
+ }
+
+
+//Event Listerners
 addUserBtn.addEventListener('click', getRandomUser);
 doubleMoneyBtn.addEventListener('click', doubleMoney);
 showMillionaireBtn.addEventListener('click', showOnlyMillionaires);
+sortBtn.addEventListener('click', sortByRichest);
+totalWealthBtn.addEventListener('click', calculateTotalWealth);
