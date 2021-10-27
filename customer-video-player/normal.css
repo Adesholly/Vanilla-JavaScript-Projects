@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;  
+}
+
+
+video {
+    width: 800px;
+    height: 500px;
+
+}
+
+video:focus {
+    outline: 0;
+}
