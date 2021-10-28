@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 
 :root {
     --primary-color: #110d2b;
-    --secondary-color: #621a66;
+    --secondary-color: #d627df;
 }
 
 * {
@@ -11,27 +12,31 @@
 
 
 body {
-    font-family: 'Lato' sans-serif;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
 
 }
 
 /*----------------Navigation------------------*/
 
 nav {
-    background-color: var(--primary-color);
+    background-color: #070512;
     position: fixed;
     left: 0;
     top: 0;
     width: 200px;
     height: 100vh;
-    border-right: 1px solid #553a20;
+    border-right: 1px solid#343240;
     margin: 0;
     transform: translateX(-100%);
 }
 
+body.show-nav {
+    transform: translateX(200px);
+}
 
 .logo {
-    margin: 0;
+
     text-align: center;
     padding: 30px;
    
@@ -44,30 +49,181 @@ nav {
     border-radius: 50%;
 }
 
-ul {
+nav ul {
     margin: 0;
-   
+    padding: 20px; 
 }
 
-ul li {
+nav ul li {
 
     list-style-type: none;
-    border-bottom: 1px solid  #553a20;
+    border-bottom: 1px solid #343240;
     padding: 10px;
-
-}
-
-ul li:first-of-type {
-    border-top:  1px solid  #553a20;
-}
-
-ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
     
 }
 
-ul li a:hover {
+nav ul li:first-of-type {
+    border-top:  1px solid #343240;
+   
+}
+
+nav ul li a {
+    text-decoration: npointerone;
+    color: #fff;
+    font-size: 14px;
+    
+}
+
+nav ul li a:hover {
     font-weight: bold;
+}
+
+/*---X---------Closing Navigation Bar-----------X-----*/
+
+/*---------------Header section-----------------------*/
+
+header {
+    background-color: #453885;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    padding: 40px 15px;
+    font-size: 120%;
+}
+
+.toggle {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    font-size: 150%;
+    border-radius: 2px;
+}
+
+.cta-btn {
+    color: #fff;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    padding: 10px 40px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/*-----------X----Header section--------------X---------*/
+
+
+/*------------------General Body-----------------------*/
+button {
+    color: #fff;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 0;
+}
+
+
+.container {
+    padding: 20px 10px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+/*-----X-------------General Body-----------X------------*/
+
+
+/*------------------Modal Section-----------------------*/
+
+.modal-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+}
+
+.modal-container.show-modal {
+    display: block;
+}
+
+
+.modal {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    width: 300px;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+    
+}
+
+.close {
+    position: relative;
+    left: 250px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.close:focus {
+    outline: 0;
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    text-align: center;
+    color: #fff;
+}
+
+.modal-header h1 {
+    padding-top: 5px;
+}
+.modal-header p {
+    margin-top: -17px;
+    padding: 5px;
+}
+
+form {
+    padding: 10px 20px;
+    margin: auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    
+}
+
+form input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form input:focus {
+    outline: 0;
+}
+
+/*------------X-----Modal Section-------X-------------*/
+
+
+
+@media  (max-width: 700px){
+    .container {
+        width: 500px;
+    }
+
 }
